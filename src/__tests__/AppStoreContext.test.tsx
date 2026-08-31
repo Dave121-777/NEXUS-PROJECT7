@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import { Text, Pressable, View } from 'react-native';
-import { AppStoreContext, useAppStore, AppStore } from '../context/AppStoreContext';
-import { communities, currentUser, sampleMeetups, threadMessages, threadPreviews, upcomingSessions } from '../data/mockData';
+import { AppStoreContext, useAppStore, AppStore } from '@/context/AppStoreContext';
+import { communities, currentUser, sampleMeetups, threadMessages, threadPreviews, upcomingSessions } from '@/data/mockData';
 
 function TestConsumerComponent() {
   const store = useAppStore();
@@ -53,6 +53,15 @@ function TestStoreProvider({ children }: { children: React.ReactNode }) {
   const [threads, setThreads] = useState(threadPreviews);
 
   const value: AppStore = {
+    isLoadingData: false,
+    isRefreshing: false,
+    refreshAll: async () => {},
+    isBootstrapping: false,
+    isAuthenticated: true,
+    markAuthenticated: () => {},
+    signOut: async () => {},
+    hasSeenOnboarding: true,
+    markOnboardingSeen: () => {},
     theme,
     setTheme,
     profile,

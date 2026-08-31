@@ -8,8 +8,8 @@ import {
   loadNotificationPrefsStorage,
   saveCommunitiesCache,
   loadCommunitiesCache,
-} from '../lib/storage';
-import { NotificationPrefs, UserProfile } from '../data/mockData';
+} from '@/lib/storage';
+import { NotificationPrefs, UserProfile } from '@/data/mockData';
 
 // Mock AsyncStorage
 jest.mock('@react-native-async-storage/async-storage', () => {
@@ -53,6 +53,8 @@ describe('Storage Service', () => {
       year: '3rd Year',
       bio: 'Student at Nexus',
       skills: ['React Native', 'TypeScript'],
+      interests: [],
+      skillLevel: 'Beginner',
       rating: '4.9',
       points: 350,
       sessions: 12,
